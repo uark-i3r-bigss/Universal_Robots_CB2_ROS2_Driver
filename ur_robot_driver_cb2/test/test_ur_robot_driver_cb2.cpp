@@ -16,6 +16,7 @@
 
 #include <string>
 
+#include "rclcpp/rclcpp.hpp"
 #include "hardware_interface/resource_manager.hpp"
 #include "ros2_control_test_assets/components_urdfs.hpp"
 #include "ros2_control_test_assets/descriptions.hpp"
@@ -53,5 +54,7 @@ TEST_F(TestURPositionHardwareInterface, load_ur_robot_driver_cb2_2dof)
 {
   auto urdf = ros2_control_test_assets::urdf_head + ur_robot_driver_cb2_2dof_ +
               ros2_control_test_assets::urdf_tail;
-  ASSERT_NO_THROW(hardware_interface::ResourceManager rm(urdf));
+  rclcpp::Node::SharedPtr node = std::make_shared<rclcpp::Node>("test_node");
+  ASSERT_NO_THROW(hardware_interface::ResourceManager rm(urdf, node->get_node_clock_interface(),
+                                                         node->get_node_logging_interface()));
 }

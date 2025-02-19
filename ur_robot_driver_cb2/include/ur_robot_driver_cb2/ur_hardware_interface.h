@@ -12,8 +12,6 @@
 #include "hardware_interface/hardware_info.hpp"
 #include "hardware_interface/system_interface.hpp"
 #include "hardware_interface/types/hardware_interface_return_values.hpp"
-#include "hardware_interface/visibility_control.h"
-
 
 // ROS
 #include "rclcpp/macros.hpp"
@@ -22,7 +20,6 @@
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "geometry_msgs/msg/wrench.hpp"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
-// #include "controller_interface/controller_interface_base.hpp"
 #include <ur_robot_driver_cb2/ur_driver.h>
 
 
