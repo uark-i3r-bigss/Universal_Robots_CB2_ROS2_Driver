@@ -194,7 +194,7 @@ def launch_setup(context, *args, **kwargs):
     initial_joint_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=[initial_joint_controller, "-c", "/controller_manager"],
+        arguments=[initial_joint_controller, "-c", "/controller_manager", "--inactive"],
     )
 
     rviz_config_file = PathJoinSubstitution([FindPackageShare("ur_description"), "rviz", "view_robot.rviz"])
