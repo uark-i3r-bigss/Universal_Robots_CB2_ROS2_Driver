@@ -123,7 +123,6 @@ def launch_setup(context, *args, **kwargs):
         # arguments=['--ros-args', '--log-level', "debug"],
         output="screen",
         parameters=[robot_description, update_rate_config_file, controllers_config_file],
-        remappings=[("motion_control_handle/target_frame", "cartesian_motion_controller/target_frame")],
     )
 
     robot_state_publisher_node = Node(
@@ -165,7 +164,7 @@ def launch_setup(context, *args, **kwargs):
     forward_position_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["forward_position_controller", "-c", "/controller_manager", "--inactive"],
+        arguments=["forward_position_controller", "-c", "/controller_manager", "--active"],
         output="screen",
     )
 
@@ -211,8 +210,8 @@ def launch_setup(context, *args, **kwargs):
         robot_state_publisher_node,
         joint_state_broadcaster_spawner,
         initial_joint_controller_spawner,
-        # cartesian_motion_controller_spawner,
-        # motion_control_handle_spawner,
+        cartesian_motion_controller_spawner,
+        motion_control_handle_spawner,
         rviz_node,
     ]
 

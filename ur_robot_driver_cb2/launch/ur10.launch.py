@@ -37,7 +37,7 @@ def generate_launch_description():
             choices=[
                 "joint_trajectory_controller",
                 "forward_position_controller",
-                # "cartesian_motion_controller"
+                "cartesian_motion_controller"
             ],
         )
     )
