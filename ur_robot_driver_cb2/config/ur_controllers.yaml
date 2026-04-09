@@ -68,7 +68,7 @@ cartesian_motion_controller:
     
     command_interfaces:
       - position
-      # - velocity
+      - velocity
 
     solver:
         error_scale: 50.0
